@@ -7,6 +7,18 @@ def morse():
 def cesar():
     pass
 
+def read_txt(input_file):
+    with open(input_file) as file:
+        input_text = file.read()
+    return input_text
+
+def write_txt(output_file, output_text):
+    with open(output_file, 'w') as file:
+        file.write(output_text)
+    return
+
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Narzędzie do szyfrowania/odszyfrowania plików: Cezar lub Morse'
@@ -35,4 +47,8 @@ if __name__ == '__main__':
     parser.add_argument('output_file', help='ścieżka do pliku wyjściowego')
 
     args = parser.parse_args()
-    print(args)
+
+    text = read_txt(args.input_file)
+
+
+    write_txt(args.output_file, text)
