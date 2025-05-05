@@ -31,7 +31,10 @@ def morse_encrypt(s):
 
     word = ""
     for letter in s:
-        word += tomorse[letter] + " "
+        if letter in tomorse:
+            word += tomorse[letter] + " "
+        else:
+            word += letter + " "
     return word
 
 def morse_decrypt(s):
@@ -67,11 +70,12 @@ def morse_decrypt(s):
 
     word = ""
     sign = ""
-    for letter in s:
-        if(letter !=" "):
+    for letter in s + ' ':
+        if letter == '.' or letter == '-' or letter == '_':
             sign += letter
-        else:
+        elif sign in toletters:
             word += toletters[sign]
             sign = ""
+        else:
+            word += letter
     return word
-
