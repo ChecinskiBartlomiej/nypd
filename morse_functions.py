@@ -1,4 +1,4 @@
-def Morse_decrypt(s):
+def morse_encrypt(s):
     tomorse = {
         " " : "_",
         "a" : ".-",
@@ -34,7 +34,7 @@ def Morse_decrypt(s):
         word += tomorse[letter] + " "
     return word
 
-def Morse_encrypt(s):
+def morse_decrypt(s):
     toletters = {
         "_" : " ",
         ".-" : "a",
@@ -74,7 +74,4 @@ def Morse_encrypt(s):
             word += toletters[sign]
             sign = ""
     return word
-
-
-
 

@@ -1,8 +1,6 @@
 import argparse
 from ceasar_cipher import caesar_encrypt, caesar_decrypt
-
-
-# from second package import functions
+from morse_functions import morse_encrypt, morse_decrypt
 
 
 def read_txt(input_file):
@@ -56,7 +54,10 @@ def main():
         elif args.decrypt:
             text = caesar_decrypt(text, args.n)
     elif args.morse:
-        pass
+        if args.encrypt:
+            text = morse_encrypt(text)
+        elif args.decrypt:
+            text = morse_decrypt(text)
     write_txt(args.output_file, text)
 
 
